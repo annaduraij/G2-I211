@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" uploadOnCheckin="9e3ff377-9c63-4954-90ef-3a27a6d9e918" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
       <paths name="XAMPP (Mac)">
         <serverdata>
@@ -17,5 +17,6 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myUploadOnCheckinName" value="XAMPP (Windows)" />
   </component>
 </project>

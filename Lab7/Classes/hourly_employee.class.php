@@ -3,7 +3,7 @@
  * Author: Jay Annadurai
  * Date: 24 Feb 2023
  * Project: I211
- * File: salaried_employee.php
+ * File: hourly_employee.php
  * Description: Extended from the Employee Class, represents an Hourly Employee
  *
  * UML:
@@ -19,8 +19,9 @@
  * +toString: void
  */
 
-//Extends Employee Class: Salaried Employee
-class SalariedEmployee extends Employee {
+//Extends Employee Class: Hourly Employee
+//An Employee that is Paid by the Hour a fixed Rate
+class HourlyEmployee extends Employee {
 
     //----------------------------------------------//
     //                  Properties                  //
@@ -68,7 +69,8 @@ class SalariedEmployee extends Employee {
         //Redundant in the Case of Salaried Employee
         //Payment Amount: wage x hours
         return ($this->getWage())*($this->getHours());
-    }
+
+    }//End of getPaymentAmount Function that represents the Employee's Total Earnings
 
     //Polymorphic Method to Echo the Traits of the Class
     //Echoes the Properties of an Instance with Line Breaks
@@ -94,7 +96,7 @@ class SalariedEmployee extends Employee {
     //----------------------------------------------//
 
     /**
-     * @return float Hourly Employment's Hourly Wage in $
+     * @return float Hourly Employee's Hourly Wage in $
      */
     public function getWage(): float
     {
@@ -102,7 +104,7 @@ class SalariedEmployee extends Employee {
     }
 
     /**
-     * @return int Hourly Employment's Number of Hours
+     * @return int Hourly Employee's Number of Hours
      */
     public function getHours(): int
     {
@@ -112,7 +114,7 @@ class SalariedEmployee extends Employee {
 
 
 
-}//End of Salaried Employee Class
+}//End of Hourly Employee Class
 
 
 ?>

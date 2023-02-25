@@ -18,6 +18,7 @@
  */
 
 //Extends Employee Class: Salaried Employee
+//An Employee that is Paid a Fixed Salary
 class SalariedEmployee extends Employee {
 
     //----------------------------------------------//
@@ -59,7 +60,8 @@ class SalariedEmployee extends Employee {
     {
         //Redundant in the Case of Salaried Employee
         return $this->getWeeklySalary();
-    }
+
+    }//End of getPaymentAmount Function that represents the Employee's Total Earnings
 
     //Polymorphic Method to Echo the Traits of the Class
     //Echoes the Properties of an Instance with Line Breaks
