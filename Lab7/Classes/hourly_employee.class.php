@@ -80,7 +80,7 @@ class HourlyEmployee extends Employee {
         parent::toString();
 
         //Echo the Employee's Wage in $
-        echo "Wage: $".number_format($this->getWage())."<br>";
+        echo "Wage: $".number_format($this->getWage(),2)."<br>";
 
         //Echo the Employee's Working Hours
         echo "Hours: ".number_format($this->getHours())."<br>";

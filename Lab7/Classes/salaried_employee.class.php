@@ -71,7 +71,7 @@ class SalariedEmployee extends Employee {
         parent::toString();
 
         //Echo the Employee's Weekly Salary in $
-        echo "Weekly Salary: $".number_format($this->getWeeklySalary())."<br>";
+        echo "Weekly Salary: $".number_format($this->getWeeklySalary(),2)."<br>";
 
         //Echo the Employee's Earnings in $
         echo "Earnings: $".number_format($this->getPaymentAmount(),2)."<br>";
