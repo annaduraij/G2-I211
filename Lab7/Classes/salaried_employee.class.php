@@ -7,7 +7,7 @@
  * Description: Extended from the Employee Class, represents a Salaried Employee that is paid a weekly wage
  *
  * UML:
- * (abstract) Employee
+ * (abstract) SalariedEmployee
  *
  * -weekly_salary: float
  *
@@ -51,6 +51,16 @@ class SalariedEmployee extends Employee {
     //                    Methods                   //
     //----------------------------------------------//
 
+    /**
+     * Signature Method of the Salaried Employee Class
+     * @return float Salaried Employee's Total Payment in $
+     */
+    public function getPaymentAmount(): float
+    {
+        //Redundant in the Case of Salaried Employee
+        return $this->getWeeklySalary();
+    }
+
     //Polymorphic Method to Echo the Traits of the Class
     //Echoes the Properties of an Instance with Line Breaks
     public function toString(): void
@@ -58,11 +68,11 @@ class SalariedEmployee extends Employee {
         //Call the toString Method of the Parent Employee Class
         parent::toString();
 
-        //Echo the Employee's Weekly Salary
-        echo "Weekly Salary: ".$this->getWeeklySalary()."<br>";
+        //Echo the Employee's Weekly Salary in $
+        echo "Weekly Salary: $".number_format($this->getWeeklySalary())."<br>";
 
-        //Echo the Employee's Earnings
-        echo "Earnings: ".$this->getPaymentAmount()."<br>";
+        //Echo the Employee's Earnings in $
+        echo "Earnings: $".number_format($this->getPaymentAmount(),2)."<br>";
 
     }//End of Signature toString Method
 
@@ -72,21 +82,13 @@ class SalariedEmployee extends Employee {
     //----------------------------------------------//
 
     /**
-     * @return float Salaried Employee's Weekly Salary
+     * @return float Salaried Employee's Weekly Salary in $
      */
     public function getWeeklySalary(): float
     {
         return $this->weekly_salary;
     }
 
-    /**
-     * @return float Salaried Employee's Total Payment
-     */
-    public function getPaymentAmount(): float
-    {
-        //Redundant in the Case of Salaried Employee
-        return $this->weekly_salary;
-    }
 
 
 }//End of Salaried Employee Class
