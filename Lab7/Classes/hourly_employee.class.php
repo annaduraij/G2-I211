@@ -27,7 +27,7 @@ class HourlyEmployee extends Employee {
     //                  Properties                  //
     //----------------------------------------------//
 
-    //Private Properties of the Salaried Employee Class
+    //Private Properties of the Hourly Employee Class
     //Hourly Rate in $ of the Employee
     private float $wage;
 
@@ -61,13 +61,13 @@ class HourlyEmployee extends Employee {
     //----------------------------------------------//
 
     /**
-     * Signature Method of the Hourly Employee Class
+     * Signature and Polymorphic Method of the Hourly Employee Class
      * @return float Hourly Employee's Total Payment in $
      */
     public function getPaymentAmount(): float
     {
-        //Redundant in the Case of Salaried Employee
-        //Payment Amount: wage x hours
+
+        //Payment Amount in $: wage x hours
         return ($this->getWage())*($this->getHours());
 
     }//End of getPaymentAmount Function that represents the Employee's Total Earnings

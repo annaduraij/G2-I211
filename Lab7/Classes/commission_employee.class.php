@@ -25,7 +25,7 @@ class CommissionEmployee extends Employee {
     //                  Properties                  //
     //----------------------------------------------//
 
-    //Private Properties of the Salaried Employee Class
+    //Private Properties of the Commission Employee Class
 
     //Quantity of Sales in $ by Employee
     private int $sales;
@@ -59,13 +59,12 @@ class CommissionEmployee extends Employee {
     //----------------------------------------------//
 
     /**
-     * Signature Method of the Hourly Employee Class
+     * Signature and Polymorphic Method of the Hourly Employee Class
      * @return float Hourly Employee's Total Payment in $
      */
     public function getPaymentAmount(): float
     {
-        //Redundant in the Case of Salaried Employee
-        //Payment Amount: sales x commission rate
+        //Payment Amount in $: sales x commission rate
         return ($this->getSales())*($this->getCommissionRate());
 
     }//End of getPaymentAmount Function that represents the Employee's Total Earnings
@@ -77,14 +76,14 @@ class CommissionEmployee extends Employee {
         //Call the toString Method of the Parent Employee Class
         parent::toString();
 
+        //Echo the Employee's Sales Quantity in $
+        echo "Sales: $".number_format($this->getSales(),2)."<br>";
+
         //Echo the Employee's % Commission Rate as a Decimal
         echo "Commission Rate: ".number_format($this->getCommissionRate(),2)."<br>";
 
-        //Echo the Employee's Sales Quantity
-        echo "Sales: ".number_format($this->getSales())."<br>";
-
         //Echo the Employee's Earnings in $
-        echo "Earnings: $".number_format($this->getPaymentAmount(),2)."<br>";
+        echo "Commission Earnings: $".number_format($this->getPaymentAmount(),2)."<br>";
 
     }//End of Signature toString Method
 

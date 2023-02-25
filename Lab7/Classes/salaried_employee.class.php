@@ -53,7 +53,7 @@ class SalariedEmployee extends Employee {
     //----------------------------------------------//
 
     /**
-     * Signature Method of the Salaried Employee Class
+     * Signature and Polymorphic Method of the Salaried Employee Class
      * @return float Salaried Employee's Total Payment in $
      */
     public function getPaymentAmount(): float
