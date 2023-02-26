@@ -63,12 +63,22 @@ class CommissionEmployee extends Employee {
 
     /**
      * Signature and Polymorphic Method of the Hourly Employee Class
-     * @return float Hourly Employee's Total Payment in $
+     * @return float Hourly Employee's Total Payment in
+     * Option to print in natural language as a formatted decimal in $ or return as a float
      */
-    public function getPaymentAmount(): float
+    public function getPaymentAmount($naturalLang = false): float
     {
-        //Payment Amount in $: sales x commission rate
-        return ($this->getSales())*($this->getCommissionRate());
+        //Bind Value as Payment Amount: sales x commission rate
+        $value = $this->getSales() * $this->getCommissionRate();
+
+        //If Natural Language flag is False
+        if (!$naturalLang) {
+            //Return the value as a Float
+            return $value;
+        } else {
+            //Otherwise, Return it as a Formatted String in $##.00
+            return "$".number_format($value,2);
+        }
 
     }//End of getPaymentAmount Function that represents the Employee's Total Earnings
 
@@ -98,20 +108,31 @@ class CommissionEmployee extends Employee {
 
     /**
      * @return int Commission Employee's Quantity of Sales
+     * Option to print in natural language as a formatted decimal or return as a float
      */
-    public function getSales(): int
+    public function getSales($naturalLang = false): int
     {
-        return $this->sales;
+        //Bind the Value
+        $value = $this->sales;
+
+        //Use Natural Language Function of Employee to Determine Printed Value
+        return Employee::nlUSD($value,$naturalLang);
+
     }
 
     /**
      * @return float Commission Employee's Commission Rate as % float of sales
+     * Option to print in natural language as a formatted decimal or return as a float
      */
-    public function getCommissionRate(): float
+    public function getCommissionRate($naturalLang = false): float
     {
-        return $this->commission_rate;
-    }
+        //Bind the Value as Payment Amount: Part Quantity x Part Price
+        $value = $this->commission_rate;
 
+        //Use Natural Language Function of Employee to Determine Printed Value
+        return Employee::nlUSD($value,$naturalLang,false);
+
+    }
 
 
 }//End of Commission Employee Class

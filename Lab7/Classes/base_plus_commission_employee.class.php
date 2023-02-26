@@ -57,12 +57,22 @@ class BasePlusCommissionEmployee extends CommissionEmployee {
 
     /**
      * Signature and Polymorphic Method of the Base Plus Commission Employee Class
-     * @return float Base Salary plus Commission Employee's Total Payment in $
+     * @return float Base Salary plus Commission Employee's Total Payment
+     * Option to print in natural language as a formatted decimal in $ or return as a float
      */
-    public function getPaymentAmount(): float
+    public function getPaymentAmount($naturalLang = false): float
     {
-        //Payment Amount in $: Commission Amount + Base Salary
-        return (parent::getPaymentAmount()) + ($this->getBaseSalary());
+        //Bind Value as Payment Amount: Commission Amount + Base Salary
+        $value = (parent::getPaymentAmount()) + ($this->getBaseSalary());
+
+        //If Natural Language flag is False
+        if (!$naturalLang) {
+            //Return the value as a Float
+            return $value;
+        } else {
+            //Otherwise, Return it as a Formatted String in $##.00
+            return "$".number_format($value,2);
+        }
 
     }//End of getPaymentAmount Function that represents the Employee's Total Earnings
 
@@ -115,9 +125,14 @@ class BasePlusCommissionEmployee extends CommissionEmployee {
     /**
      * @return float Employee's Base Salary in $
      */
-    public function getBaseSalary(): float
+    public function getBaseSalary($naturalLang = false): float
     {
-        return $this->base_salary;
+        //Bind Value
+        $value = $this->base_salary;
+
+        //Use Natural Language Function of Employee to Determine Printed Value
+        return Employee::nlUSD($value,$naturalLang);
+
     }
 
 

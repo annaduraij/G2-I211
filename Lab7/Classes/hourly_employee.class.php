@@ -63,14 +63,22 @@ class HourlyEmployee extends Employee {
 
     /**
      * Signature and Polymorphic Method of the Hourly Employee Class
-     * @return float Hourly Employee's Total Payment in $
+     * @return float Hourly Employee's Total Payment
+     * Option to print in natural language as a formatted decimal in $ or return as a float
      */
-    public function getPaymentAmount(): float
+    public function getPaymentAmount($naturalLang = false): float
     {
+        //Bind Value as Payment Amount: wage x hours
+        $value = ($this->getWage())*($this->getHours());
 
-        //Payment Amount in $: wage x hours
-        return ($this->getWage())*($this->getHours());
-
+        //If Natural Language flag is False
+        if (!$naturalLang) {
+            //Return the value as a Float
+            return $value;
+        } else {
+            //Otherwise, Return it as a Formatted String in $##.00
+            return "$".number_format($value,2);
+        }
     }//End of getPaymentAmount Function that represents the Employee's Total Earnings
 
     //Polymorphic Method to Echo the Traits of the Class
@@ -97,15 +105,21 @@ class HourlyEmployee extends Employee {
     //----------------------------------------------//
 
     /**
-     * @return float Hourly Employee's Hourly Wage in $
+     * @return float Hourly Employee's Hourly Wage
+     * Option to print in natural language as a formatted decimal in $ or return as a float
      */
-    public function getWage(): float
+    public function getWage($naturalLang = false): float
     {
-        return $this->wage;
+        //Bind the Value
+        $value = $this->wage;
+
+        //Use Natural Language Function of Employee to Determine Printed Value
+        return Employee::nlUSD($value,$naturalLang);
     }
 
     /**
      * @return int Hourly Employee's Number of Hours
+     * Option to print in natural language as a formatted decimal in $ or return as a float
      */
     public function getHours(): int
     {

@@ -71,6 +71,22 @@ class Employee {
 
     }//End of Signature toString Method
 
+    //Static Function to Convert Values to Natural Language for USD
+    public static function nlUSD($value,$enableNL = false,$enableUSD = true){
+
+        //If Natural Language flag is Enabled
+        if ($enableNL) {
+            //Set Value to a Formatted String in ##.00
+            return number_format($value,2);
+        }
+
+        //If USD flag is Enabled, Set a '$' prefix
+        if ($enableUSD) { $value = "$".$value;}
+
+        //Return the Formatted Value
+        return $value;
+
+    }//End of Static Function nlUSD
 
     //----------------------------------------------//
     //                    Getters                   //

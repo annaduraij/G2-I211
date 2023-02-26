@@ -55,12 +55,22 @@ class SalariedEmployee extends Employee {
 
     /**
      * Signature and Polymorphic Method of the Salaried Employee Class
-     * @return float Salaried Employee's Total Payment in $
+     * @return float Salaried Employee's Total Payment
+     * Option to print in natural language as a formatted decimal in $ or return as a float
      */
-    public function getPaymentAmount(): float
+    public function getPaymentAmount($naturalLang = false): float
     {
-        //Redundant in the Case of Salaried Employee
-        return $this->getWeeklySalary();
+        //Bind Value as Payment Amount: Weekly Salary
+        $value = $this->getWeeklySalary();
+
+        //If Natural Language flag is False
+        if (!$naturalLang) {
+            //Return the value as a Float
+            return $value;
+        } else {
+            //Otherwise, Return it as a Formatted String in $##.00
+            return "$".number_format($value,2);
+        }
 
     }//End of getPaymentAmount Function that represents the Employee's Total Earnings
 
@@ -85,11 +95,16 @@ class SalariedEmployee extends Employee {
     //----------------------------------------------//
 
     /**
-     * @return float Salaried Employee's Weekly Salary in $
+     * @return float Salaried Employee's Weekly Salary
+     * Option to print in natural language as a formatted decimal in $ or return as a float
      */
-    public function getWeeklySalary(): float
+    public function getWeeklySalary($naturalLang = false): float
     {
-        return $this->weekly_salary;
+        //Bind the Value
+        $value = $this->weekly_salary;
+
+        //Use Natural Language Function of Employee to Determine Printed Value
+        return Employee::nlUSD($value,$naturalLang);
     }
 
 
