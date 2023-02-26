@@ -8,13 +8,14 @@
  *
  * UML:
  * (abstract) SalariedEmployee
- *
+ * ----------------------------
  * -weekly_salary: float
- *
+ * ----------------------------
  * + __construct
  * +getWeeklySalary: float
  * +getPaymentAmount: float
  * +toString: void
+ * ----------------------------
  */
 
 //Extends Employee Class: Salaried Employee

@@ -8,17 +8,17 @@
  *
  * UML:
  * (abstract) Employee
- *
+ * ----------------------------
  * -person: Person
  * -ssn: String
  * -employee_count: integer
- *
+ * ----------------------------
  * + __construct
  * +getPerson: Person
  * +getSSN: String
  * +getEmployeeCount: integer
  * +toString: void
- *
+ * ----------------------------
  */
 
 //Abstract Employee Base Class
@@ -49,7 +49,7 @@ class Employee {
         self::$employee_count++;
 
         //Construct and Store a Person Object using the Person Class Constructor
-        $this->person = Person::__construct($firstName,$lastName);
+        $this->person = (new Person)->__construct($firstName,$lastName);
         //Store Employee SSN Information
         $this->ssn = $ssn;
 

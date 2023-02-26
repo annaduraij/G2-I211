@@ -8,15 +8,16 @@
  *
  * UML:
  * (abstract) HourlyEmployee
- *
+ * ----------------------------
  * -wage: float
  * -hours: integer
- *
+ * ----------------------------
  * + __construct
  * +getWage: float
  * +getHours: integer
  * +getPaymentAmount: float
  * +toString: void
+ * ----------------------------
  */
 
 //Extends Employee Class: Hourly Employee

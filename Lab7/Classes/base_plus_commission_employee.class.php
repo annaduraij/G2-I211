@@ -8,13 +8,14 @@
  *
  * UML:
  * (abstract) Base Salary Plus CommissionEmployee
- *
+ * ----------------------------
  * -base_salary: float
- *
+ * ----------------------------
  * + __construct
  * +getBaseSalary: float
  * +getPaymentAmount: float
  * +toString: void
+ * ----------------------------
  */
 
 //Extends Commission Employee Class: Base Salary Plus Commission Employee

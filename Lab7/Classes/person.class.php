@@ -8,15 +8,15 @@
  *
  * UML:
  * Person (Composed into Employee)
- *
+ * ----------------------------
  * -first_name: String
  * -last_name: String
- *
+ * ----------------------------
  * + __construct
  * +getFirstName: String
  * +getLastName: String
  * +toString: void
- *
+ * ----------------------------
  */
 
 //Person Class, composed into (Abstract) Employee Class

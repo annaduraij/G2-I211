@@ -8,13 +8,16 @@
  *
  * UML:
  * (abstract) CommissionEmployee
- *
+ * ----------------------------
+ * sales: int
  * -weekly_salary: float
- *
+ * ----------------------------
  * + __construct
+ * +getSales: integer
  * +getWeeklySalary: float
  * +getPaymentAmount: float
  * +toString: void
+ * ----------------------------
  */
 
 //Extends Employee Class: Commission Employee
