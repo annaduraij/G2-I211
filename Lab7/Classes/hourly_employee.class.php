@@ -66,7 +66,7 @@ class HourlyEmployee extends Employee {
      * @return float Hourly Employee's Total Payment
      * Option to print in natural language as a formatted decimal in $ or return as a float
      */
-    public function getPaymentAmount($naturalLang = false): float
+    public function getPaymentAmount($naturalLang = false)
     {
         //Bind Value as Payment Amount: wage x hours
         $value = ($this->getWage()) * ($this->getHours());
@@ -103,7 +103,7 @@ class HourlyEmployee extends Employee {
      * @return float Hourly Employee's Hourly Wage
      * Option to print in natural language as a formatted decimal in $ or return as a float
      */
-    public function getWage($naturalLang = false): float
+    public function getWage($naturalLang = false)
     {
         //Bind the Value
         $value = $this->wage;

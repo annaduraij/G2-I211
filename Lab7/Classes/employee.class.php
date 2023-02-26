@@ -37,7 +37,7 @@ abstract class Employee implements Payable {
 
     //Static Count of Employee and Child Class Instances
     //Incremented whenever the Employee Constructor is Called
-    private static int $employee_count;
+    private static int $employee_count = 0;
 
     //----------------------------------------------//
     //                  Constructor                 //
@@ -50,7 +50,7 @@ abstract class Employee implements Payable {
         self::$employee_count++;
 
         //Construct and Store a Person Object using the Person Class Constructor
-        $this->person = (new Person)->__construct($firstName,$lastName);
+        $this->person = new Person($firstName,$lastName);
 
         //Process and Store Employee SSN Information
         //Note: SSN Format = ###-##-####
@@ -80,11 +80,11 @@ abstract class Employee implements Payable {
         //If Natural Language flag is Enabled
         if ($enableNL) {
             //Set Value to a Formatted String in ##.00
-            return number_format($value,2);
-        }
+            $value = number_format($value,2);
 
-        //If USD flag is Enabled, Set a '$' prefix
-        if ($enableUSD) { $value = "$".$value;}
+            //If USD flag is Enabled, Set a '$' prefix
+            if ($enableUSD) { $value = "$".$value;}
+        }
 
         //Return the Formatted Value
         return $value;

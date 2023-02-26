@@ -29,7 +29,7 @@ require_once "Library/autoload.php";
         //Create an Array of Objects to Test the Payroll System
 
         //Create a Test Invoice for Engine Pistons
-        $invoiceEP = new Invoice('10062','Engine Piston',6,408.00);
+        $invoiceEP = new Invoice('10062','2GR-FKS Forged Connection Rods',6,408.00);
 
         //Create a Test Invoice for Vehicle Tires
         $invoiceVT = new Invoice('20124','Michelin Pilot Sport 4 AS 18x8.5',2,199.99);
@@ -61,16 +61,18 @@ require_once "Library/autoload.php";
         foreach($test as $class=>$object){
             echo "<hr>";
             //Print the Class Name
-            echo "<h2> $class </h2>";
+            echo "<h3> $class </h3>";
             echo "<hr>";
             //Use the Polymorphic toString Method of Each Object
             $object->toString();
             echo "<hr>";
+
+            echo "<br>";
         }
 
         //Print the Counts of Invoices and Employees
-        echo "Number of Invoices: ".Invoice::getInvoiceCount()."<br>";
-        echo "Number of Employees: ".Employee::getEmployeeCount()."<br>";
+        echo "<i> <b> Number of Invoices: ".Invoice::getInvoiceCount()."<br> </b> </i>";
+        echo "<i> <b> Number of Employees: ".Employee::getEmployeeCount()."<br> </b> </i>";
 
         ?>
 

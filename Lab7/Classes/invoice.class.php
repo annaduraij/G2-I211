@@ -45,7 +45,7 @@ class Invoice implements Payable {
 
     //Static Count of Invoice Instances
     //Incremented whenever the Invoice Constructor is Called
-    private static int $invoice_count;
+    private static int $invoice_count = 0;
 
     //----------------------------------------------//
     //                  Constructor                 //
@@ -74,7 +74,7 @@ class Invoice implements Payable {
      * @return float of the Total Payment as Computed by Part Price x Part Quantity
      * Option to print in natural language as a formatted decimal in $ or return as a float
      */
-    public function getPaymentAmount($naturalLang = false): float
+    public function getPaymentAmount($naturalLang = false)
     {
         //Bind the Value as Payment Amount: Part Quantity x Part Price
         $value = ($this->getQuantity() * $this->getPricePerItem());
@@ -95,10 +95,10 @@ class Invoice implements Payable {
         echo "Quantity: ".$this->getQuantity()."<br>";
 
         //Echo the Price per Part/Item in $
-        echo "Price Per Item: ".$this->getPricePerItem()."<br>";
+        echo "Price Per Item: ".$this->getPricePerItem(true)."<br>";
 
         //Echo the Total Payment Amount in $
-        echo "Payment: ".$this->getPaymentAmount()."<br>";
+        echo "Payment: ".$this->getPaymentAmount(true)."<br>";
 
     }//End of Signature toString Method
 
@@ -134,7 +134,7 @@ class Invoice implements Payable {
     /**
      * @return float of the Price per Part/Item in $
      */
-    public function getPricePerItem($naturalLang = false): float
+    public function getPricePerItem($naturalLang = false)
     {
         //Bind the Value
         $value = $this->price_per_item;

@@ -29,7 +29,7 @@ interface Payable {
      * @return float of the Total Payment as Computed
      * Option to print in natural language as a formatted decimal in $ or return as a float
      */
-    public function getPaymentAmount($naturalLang = false): float;
+    public function getPaymentAmount($naturalLang = false);
 
     //Polymorphic Method to Echo the Traits of the Class
     //Echoes the Properties of an Instance with Line Breaks

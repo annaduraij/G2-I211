@@ -60,7 +60,7 @@ class BasePlusCommissionEmployee extends CommissionEmployee {
      * @return float Base Salary plus Commission Employee's Total Payment
      * Option to print in natural language as a formatted decimal in $ or return as a float
      */
-    public function getPaymentAmount($naturalLang = false): float
+    public function getPaymentAmount($naturalLang = false)
     {
         //Bind Value as Payment Amount: Commission Amount + Base Salary
         $value = (parent::getPaymentAmount()) + ($this->getBaseSalary());
@@ -81,9 +81,10 @@ class BasePlusCommissionEmployee extends CommissionEmployee {
     public function toString(): void
     {
 
-        //Incorrect Use of Polymorphism, but Gets the Desired Format
+        /*
+        //Incorrect Use of Polymorphism, but Gets the Desired Format without Issues
         //Call the toString Method of the Grand Parent Employee Class
-        Employee::toString();
+        //Employee::toString();
 
         //Cannot Simply Call the Parent toString Method as that will Result in Improper Repetition or Formatting and Order of the Earnings Line
 
@@ -98,21 +99,21 @@ class BasePlusCommissionEmployee extends CommissionEmployee {
 
         //Echo the Employee's Gross Earnings in $
         echo "Earnings: ".$this->getPaymentAmount(true)."<br>";
+        */
 
 
-        /*
-        //Need to Test how the Method Override in Polymorphic Coding Works
-        //Does the parent class need a self:: in it's getPaymentAmount method such that when the toString Method of this child class is called, it accurately echoes the Payment Amount as defined by itself, the parent class?
+        //Requires toString Method of 'Commission Employee' Class Modification
+        //Force the Parent Method of Base Plus Commission Salary to strictly use the getPayment Amount Method within its own class
 
         //Call the toString Method of the Parent Commission Employee Class
         parent::toString();
 
         //Echo the Employee's Base Salary
-        echo "Base Salary: $".number_format($this->getBaseSalary()."<br>";
+        echo "Base Salary: ".$this->getBaseSalary(true)."<br>";
 
         //Echo the Employee's Gross Earnings in $
-        echo "Earnings: $".number_format($this->getPaymentAmount(),2)."<br>";
-        */
+        echo "Earnings: ".$this->getPaymentAmount(true)."<br>";
+
 
     }//End of Signature toString Method
 
@@ -125,7 +126,7 @@ class BasePlusCommissionEmployee extends CommissionEmployee {
     /**
      * @return float Employee's Base Salary in $
      */
-    public function getBaseSalary($naturalLang = false): float
+    public function getBaseSalary($naturalLang = false)
     {
         //Bind Value
         $value = $this->base_salary;

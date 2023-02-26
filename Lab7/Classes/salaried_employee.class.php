@@ -58,7 +58,7 @@ class SalariedEmployee extends Employee {
      * @return float Salaried Employee's Total Payment
      * Option to print in natural language as a formatted decimal in $ or return as a float
      */
-    public function getPaymentAmount($naturalLang = false): float
+    public function getPaymentAmount($naturalLang = false)
     {
         //Bind Value as Payment Amount: Weekly Salary
         $value = $this->getWeeklySalary();
@@ -92,7 +92,7 @@ class SalariedEmployee extends Employee {
      * @return float Salaried Employee's Weekly Salary
      * Option to print in natural language as a formatted decimal in $ or return as a float
      */
-    public function getWeeklySalary($naturalLang = false): float
+    public function getWeeklySalary($naturalLang = false)
     {
         //Bind the Value
         $value = $this->weekly_salary;

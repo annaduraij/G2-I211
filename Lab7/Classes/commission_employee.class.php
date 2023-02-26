@@ -66,7 +66,7 @@ class CommissionEmployee extends Employee {
      * @return float Hourly Employee's Total Payment in
      * Option to print in natural language as a formatted decimal in $ or return as a float
      */
-    public function getPaymentAmount($naturalLang = false): float
+    public function getPaymentAmount($naturalLang = false)
     {
         //Bind Value as Payment Amount: sales x commission rate
         $value = $this->getSales() * $this->getCommissionRate();
@@ -96,7 +96,8 @@ class CommissionEmployee extends Employee {
         echo "Commission Rate: ".$this->getCommissionRate(true)."<br>";
 
         //Echo the Employee's Commission Earnings in $
-        echo "Commission Earnings: ".$this->getPaymentAmount(true)."<br>";
+        //echo "Commission Earnings: ".$this->getPaymentAmount(true)."<br>"; //Not Extensible into Base Plus Commission Employee
+        echo "Commission Earnings: ".CommissionEmployee::getPaymentAmount(true)."<br>";
 
     }//End of Signature toString Method
 
@@ -108,9 +109,9 @@ class CommissionEmployee extends Employee {
 
     /**
      * @return int Commission Employee's Quantity of Sales
-     * Option to print in natural language as a formatted decimal or return as a float
+     * Option to print in natural language as a formatted decimal or return as an int
      */
-    public function getSales($naturalLang = false): int
+    public function getSales($naturalLang = false)
     {
         //Bind the Value
         $value = $this->sales;
@@ -124,7 +125,7 @@ class CommissionEmployee extends Employee {
      * @return float Commission Employee's Commission Rate as % float of sales
      * Option to print in natural language as a formatted decimal or return as a float
      */
-    public function getCommissionRate($naturalLang = false): float
+    public function getCommissionRate($naturalLang = false)
     {
         //Bind the Value as Payment Amount: Part Quantity x Part Price
         $value = $this->commission_rate;
