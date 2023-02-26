@@ -39,7 +39,7 @@ class BasePlusCommissionEmployee extends CommissionEmployee {
     //----------------------------------------------//
 
     //Employee Class Constructor
-    public function __construct($firstName,$lastName,$ssn,$commissionRate,$salesQuantity,$baseSalary) {
+    public function __construct(string $firstName,string $lastName,string $ssn,float $commissionRate,int $salesQuantity,float $baseSalary) {
 
         //Use the Parent Constructor from Commission Employee
         //Grandparent Constructor Processes First Name, Last Name, and SSN
@@ -57,10 +57,10 @@ class BasePlusCommissionEmployee extends CommissionEmployee {
 
     /**
      * Signature and Polymorphic Method of the Base Plus Commission Employee Class
-     * @return float Base Salary plus Commission Employee's Total Payment
-     * Option to print in natural language as a formatted decimal in $ or return as a float
+     * @return float|string Base Salary plus Commission Employee's Total Payment
+     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
      */
-    public function getPaymentAmount($naturalLang = false)
+    public function getPaymentAmount(bool $naturalLang = false): float|string
     {
         //Bind Value as Payment Amount: Commission Amount + Base Salary
         $value = (parent::getPaymentAmount()) + ($this->getBaseSalary());
@@ -124,9 +124,10 @@ class BasePlusCommissionEmployee extends CommissionEmployee {
 
 
     /**
-     * @return float Employee's Base Salary in $
+     * @param bool $naturalLang allows for natural language formatting and returns a string
+     * @return float|string Employee's Base Salary in $
      */
-    public function getBaseSalary($naturalLang = false)
+    public function getBaseSalary(bool $naturalLang = false): float|string
     {
         //Bind Value
         $value = $this->base_salary;

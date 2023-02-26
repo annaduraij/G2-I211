@@ -52,7 +52,7 @@ class Invoice implements Payable {
     //----------------------------------------------//
 
     //Invoice Class Constructor
-    public function __construct($partNumber,$partDescription,$partQuantity,$partPricePerItem) {
+    public function __construct(string $partNumber, string $partDescription,int $partQuantity,float $partPricePerItem) {
 
         //Increment the Count of Invoice Class Instances
         self::$invoice_count++;
@@ -71,10 +71,10 @@ class Invoice implements Payable {
 
     /**
      * Signature and Polymorphic Method of the Invoice Class
-     * @return float of the Total Payment as Computed by Part Price x Part Quantity
-     * Option to print in natural language as a formatted decimal in $ or return as a float
+     * @return float|string of the Total Payment as Computed by Part Price x Part Quantity
+     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
      */
-    public function getPaymentAmount($naturalLang = false)
+    public function getPaymentAmount(bool $naturalLang = false): float|string
     {
         //Bind the Value as Payment Amount: Part Quantity x Part Price
         $value = ($this->getQuantity() * $this->getPricePerItem());
@@ -132,9 +132,10 @@ class Invoice implements Payable {
     }
 
     /**
-     * @return float of the Price per Part/Item in $
+     * @return float|string of the Price per Part/Item in $
+     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
      */
-    public function getPricePerItem($naturalLang = false)
+    public function getPricePerItem(bool $naturalLang = false): float|string
     {
         //Bind the Value
         $value = $this->price_per_item;

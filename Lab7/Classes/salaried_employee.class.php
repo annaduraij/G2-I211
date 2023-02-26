@@ -38,7 +38,7 @@ class SalariedEmployee extends Employee {
     //----------------------------------------------//
 
     //Employee Class Constructor
-    public function __construct($firstName,$lastName,$ssn,$weeklySalary) {
+    public function __construct(string $firstName,string $lastName,string $ssn, float $weeklySalary) {
 
         //Use the Parent Constructor from Employee
         //Processes First Name, Last Name, and SSN
@@ -55,10 +55,10 @@ class SalariedEmployee extends Employee {
 
     /**
      * Signature and Polymorphic Method of the Salaried Employee Class
-     * @return float Salaried Employee's Total Payment
-     * Option to print in natural language as a formatted decimal in $ or return as a float
+     * @return float|string Salaried Employee's Total Payment
+     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
      */
-    public function getPaymentAmount($naturalLang = false)
+    public function getPaymentAmount(bool $naturalLang = false): float|string
     {
         //Bind Value as Payment Amount: Weekly Salary
         $value = $this->getWeeklySalary();
@@ -89,10 +89,10 @@ class SalariedEmployee extends Employee {
     //----------------------------------------------//
 
     /**
-     * @return float Salaried Employee's Weekly Salary
-     * Option to print in natural language as a formatted decimal in $ or return as a float
+     * @return float|string Salaried Employee's Weekly Salary
+     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
      */
-    public function getWeeklySalary($naturalLang = false)
+    public function getWeeklySalary(bool $naturalLang = false): float|string
     {
         //Bind the Value
         $value = $this->weekly_salary;

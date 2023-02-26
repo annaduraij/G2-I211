@@ -43,7 +43,7 @@ class HourlyEmployee extends Employee {
     //----------------------------------------------//
 
     //Employee Class Constructor
-    public function __construct($firstName,$lastName,$ssn,$wage,$hoursWorked) {
+    public function __construct(string $firstName,string $lastName,string $ssn, float $wage,int $hoursWorked) {
 
         //Use the Parent Constructor from Employee
         //Processes First Name, Last Name, and SSN
@@ -63,10 +63,10 @@ class HourlyEmployee extends Employee {
 
     /**
      * Signature and Polymorphic Method of the Hourly Employee Class
-     * @return float Hourly Employee's Total Payment
-     * Option to print in natural language as a formatted decimal in $ or return as a float
+     * @return float|string Hourly Employee's Total Payment
+     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
      */
-    public function getPaymentAmount($naturalLang = false)
+    public function getPaymentAmount(bool $naturalLang = false): float|string
     {
         //Bind Value as Payment Amount: wage x hours
         $value = ($this->getWage()) * ($this->getHours());
@@ -100,10 +100,10 @@ class HourlyEmployee extends Employee {
     //----------------------------------------------//
 
     /**
-     * @return float Hourly Employee's Hourly Wage
-     * Option to print in natural language as a formatted decimal in $ or return as a float
+     * @return float|string Hourly Employee's Hourly Wage
+     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
      */
-    public function getWage($naturalLang = false)
+    public function getWage(bool $naturalLang = false): float|string
     {
         //Bind the Value
         $value = $this->wage;
@@ -114,7 +114,6 @@ class HourlyEmployee extends Employee {
 
     /**
      * @return int Hourly Employee's Number of Hours
-     * Option to print in natural language as a formatted decimal in $ or return as a float
      */
     public function getHours(): int
     {

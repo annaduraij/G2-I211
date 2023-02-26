@@ -44,7 +44,7 @@ abstract class Employee implements Payable {
     //----------------------------------------------//
 
     //Employee Class Constructor
-    public function __construct($firstName,$lastName,$ssn) {
+    public function __construct(string $firstName,string $lastName,string $ssn) {
 
         //Increment the Count of Employee Class Instances
         self::$employee_count++;

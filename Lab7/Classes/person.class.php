@@ -34,7 +34,7 @@ class Person {
     //----------------------------------------------//
 
     //Person Class Constructor
-    public function __construct($firstName,$lastName) {
+    public function __construct(string $firstName,string $lastName) {
         $this->first_name= $firstName;
         $this->last_name = $lastName;
     }//End of Constructor

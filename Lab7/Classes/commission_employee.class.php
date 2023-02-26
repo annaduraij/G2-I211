@@ -43,7 +43,7 @@ class CommissionEmployee extends Employee {
     //----------------------------------------------//
 
     //Employee Class Constructor
-    public function __construct($firstName,$lastName,$ssn,$commissionRate,$salesQuantity) {
+    public function __construct(string $firstName,string $lastName,string $ssn,float $commissionRate,int $salesQuantity) {
 
         //Use the Parent Constructor from Employee
         //Processes First Name, Last Name, and SSN
@@ -63,10 +63,10 @@ class CommissionEmployee extends Employee {
 
     /**
      * Signature and Polymorphic Method of the Hourly Employee Class
-     * @return float Hourly Employee's Total Payment in
-     * Option to print in natural language as a formatted decimal in $ or return as a float
+     * @return float|string Hourly Employee's Total Payment in
+     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
      */
-    public function getPaymentAmount($naturalLang = false)
+    public function getPaymentAmount(bool $naturalLang = false): float|string
     {
         //Bind Value as Payment Amount: sales x commission rate
         $value = $this->getSales() * $this->getCommissionRate();
@@ -108,10 +108,10 @@ class CommissionEmployee extends Employee {
 
 
     /**
-     * @return int Commission Employee's Quantity of Sales
-     * Option to print in natural language as a formatted decimal or return as an int
+     * @return int|string Commission Employee's Quantity of Sales
+     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
      */
-    public function getSales($naturalLang = false)
+    public function getSales(bool $naturalLang = false): int|string
     {
         //Bind the Value
         $value = $this->sales;
@@ -122,10 +122,10 @@ class CommissionEmployee extends Employee {
     }
 
     /**
-     * @return float Commission Employee's Commission Rate as % float of sales
-     * Option to print in natural language as a formatted decimal or return as a float
+     * @return float|string Commission Employee's Commission Rate as % float of sales
+     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
      */
-    public function getCommissionRate($naturalLang = false)
+    public function getCommissionRate(bool $naturalLang = false): float|string
     {
         //Bind the Value as Payment Amount: Part Quantity x Part Price
         $value = $this->commission_rate;
