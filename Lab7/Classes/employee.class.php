@@ -18,11 +18,12 @@
  * +getSSN: String
  * +getEmployeeCount: integer
  * +toString: void
+ * +nlUSD: variable
  * ----------------------------
  */
 
-//Abstract Employee Base Class
-class Employee {
+//Abstract Employee Base Class that Implements the Payable Interface
+abstract class Employee implements Payable {
 
     //----------------------------------------------//
     //                  Properties                  //

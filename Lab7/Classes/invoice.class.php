@@ -26,8 +26,8 @@
  * ----------------------------
  */
 
-//Abstract Invoice Base Class
-class Invoice {
+//Abstract Invoice Base Class that Implements the Payable Interface
+class Invoice implements Payable {
 
     //----------------------------------------------//
     //                  Properties                  //
