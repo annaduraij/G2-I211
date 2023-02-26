@@ -51,8 +51,10 @@ abstract class Employee implements Payable {
 
         //Construct and Store a Person Object using the Person Class Constructor
         $this->person = (new Person)->__construct($firstName,$lastName);
-        //Store Employee SSN Information
-        $this->ssn = $ssn;
+
+        //Process and Store Employee SSN Information
+        //Note: SSN Format = ###-##-####
+        $this->ssn = implode('-',[substr($ssn,0,3), substr($ssn,3,2),  substr($ssn,5,4)]);
 
     }//End of Constructor
 
@@ -112,7 +114,7 @@ abstract class Employee implements Payable {
     /**
      * @return integer that represents the count of Employee Instances
      */
-    public function getEmployeeCount(): int
+    public static function getEmployeeCount(): int
     {
         return self::$employee_count;
     }
