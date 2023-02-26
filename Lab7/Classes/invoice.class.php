@@ -95,10 +95,10 @@ class Invoice {
         echo "Quantity: ".$this->getQuantity()."<br>";
 
         //Echo the Price per Part/Item in $
-        echo "Price Per Item: $".number_format($this->getPricePerItem(),2)."<br>";
+        echo "Price Per Item: ".$this->getPricePerItem()."<br>";
 
         //Echo the Total Payment Amount in $
-        echo "Payment: $".number_format($this->getPaymentAmount(),2)."<br>";
+        echo "Payment: ".$this->getPaymentAmount()."<br>";
 
     }//End of Signature toString Method
 

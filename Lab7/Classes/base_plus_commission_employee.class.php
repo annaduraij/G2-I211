@@ -88,27 +88,27 @@ class BasePlusCommissionEmployee extends CommissionEmployee {
         //Cannot Simply Call the Parent toString Method as that will Result in Improper Repetition or Formatting and Order of the Earnings Line
 
         //Echo the Employee's Sales Quantity in $
-        echo "Sales: $".number_format($this->getSales(), 2)."<br>";
+        echo "Sales: ".$this->getSales(true)."<br>";
 
         //Echo the Employee's % Commission Rate as a Decimal
-        echo "Commission Rate: ".number_format($this->getCommissionRate(),2 )."<br>";
+        echo "Commission Rate: ".$this->getCommissionRate(true)."<br>";
 
         //Echo the Employee's Base Salary
-        echo "Base Salary: $".number_format($this->getBaseSalary(),2)."<br>";
+        echo "Base Salary: ".$this->getBaseSalary(true)."<br>";
 
         //Echo the Employee's Gross Earnings in $
-        echo "Earnings: $".number_format($this->getPaymentAmount(),2)."<br>";
+        echo "Earnings: ".$this->getPaymentAmount(true)."<br>";
 
 
         /*
         //Need to Test how the Method Override in Polymorphic Coding Works
-        //Does the parent class need a self:: in it's getPaymentAmount method such taht when the toString Method of this child class is called, it accurately echoes the Payment Amount as defined by itself, the parent class?
+        //Does the parent class need a self:: in it's getPaymentAmount method such that when the toString Method of this child class is called, it accurately echoes the Payment Amount as defined by itself, the parent class?
 
         //Call the toString Method of the Parent Commission Employee Class
         parent::toString();
 
         //Echo the Employee's Base Salary
-        echo "Base Salary: $".number_format($this->getBaseSalary(),2)."<br>";
+        echo "Base Salary: $".number_format($this->getBaseSalary()."<br>";
 
         //Echo the Employee's Gross Earnings in $
         echo "Earnings: $".number_format($this->getPaymentAmount(),2)."<br>";

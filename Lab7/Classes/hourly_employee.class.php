@@ -69,16 +69,11 @@ class HourlyEmployee extends Employee {
     public function getPaymentAmount($naturalLang = false): float
     {
         //Bind Value as Payment Amount: wage x hours
-        $value = ($this->getWage())*($this->getHours());
+        $value = ($this->getWage()) * ($this->getHours());
 
-        //If Natural Language flag is False
-        if (!$naturalLang) {
-            //Return the value as a Float
-            return $value;
-        } else {
-            //Otherwise, Return it as a Formatted String in $##.00
-            return "$".number_format($value,2);
-        }
+        //Use Natural Language Function of Employee to Determine Printed Value
+        return Employee::nlUSD($value,$naturalLang);
+
     }//End of getPaymentAmount Function that represents the Employee's Total Earnings
 
     //Polymorphic Method to Echo the Traits of the Class
@@ -89,13 +84,13 @@ class HourlyEmployee extends Employee {
         parent::toString();
 
         //Echo the Employee's Wage in $
-        echo "Wage: $".number_format($this->getWage(),2)."<br>";
+        echo "Wage: ".$this->getWage(true)."<br>";
 
         //Echo the Employee's Working Hours
-        echo "Hours: ".number_format($this->getHours())."<br>";
+        echo "Hours: ".$this->getHours()."<br>";
 
         //Echo the Employee's Earnings in $
-        echo "Earnings: $".number_format($this->getPaymentAmount(),2)."<br>";
+        echo "Earnings: ".$this->getPaymentAmount(true)."<br>";
 
     }//End of Signature toString Method
 

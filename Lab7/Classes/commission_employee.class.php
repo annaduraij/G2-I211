@@ -90,13 +90,13 @@ class CommissionEmployee extends Employee {
         parent::toString();
 
         //Echo the Employee's Sales Quantity in $
-        echo "Sales: $".number_format($this->getSales(),2)."<br>";
+        echo "Sales: ".$this->getSales(true)."<br>";
 
         //Echo the Employee's % Commission Rate as a Decimal
-        echo "Commission Rate: ".number_format($this->getCommissionRate(),2)."<br>";
+        echo "Commission Rate: ".$this->getCommissionRate(true)."<br>";
 
-        //Echo the Employee's Earnings in $
-        echo "Commission Earnings: $".number_format($this->getPaymentAmount(),2)."<br>";
+        //Echo the Employee's Commission Earnings in $
+        echo "Commission Earnings: ".$this->getPaymentAmount(true)."<br>";
 
     }//End of Signature toString Method
 

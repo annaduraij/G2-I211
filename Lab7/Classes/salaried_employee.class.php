@@ -63,14 +63,8 @@ class SalariedEmployee extends Employee {
         //Bind Value as Payment Amount: Weekly Salary
         $value = $this->getWeeklySalary();
 
-        //If Natural Language flag is False
-        if (!$naturalLang) {
-            //Return the value as a Float
-            return $value;
-        } else {
-            //Otherwise, Return it as a Formatted String in $##.00
-            return "$".number_format($value,2);
-        }
+        //Use Natural Language Function of Employee to Determine Printed Value
+        return Employee::nlUSD($value,$naturalLang);
 
     }//End of getPaymentAmount Function that represents the Employee's Total Earnings
 
@@ -82,10 +76,10 @@ class SalariedEmployee extends Employee {
         parent::toString();
 
         //Echo the Employee's Weekly Salary in $
-        echo "Weekly Salary: $".number_format($this->getWeeklySalary(),2)."<br>";
+        echo "Weekly Salary: ".$this->getWeeklySalary(true)."<br>";
 
         //Echo the Employee's Earnings in $
-        echo "Earnings: $".number_format($this->getPaymentAmount(),2)."<br>";
+        echo "Earnings: ".$this->getPaymentAmount(true)."<br>";
 
     }//End of Signature toString Method
 
