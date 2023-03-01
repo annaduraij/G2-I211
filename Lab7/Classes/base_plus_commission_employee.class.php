@@ -7,7 +7,7 @@
  * Description: Extended from the Employee Class, represents a Base Salary Plus Commission Employee that is paid a percentage commission from their sales and a fixed salary
  *
  * UML:
- * (abstract) Base Salary Plus CommissionEmployee
+ * Base Salary Plus CommissionEmployee
  * ----------------------------
  * -base_salary: float
  * ----------------------------

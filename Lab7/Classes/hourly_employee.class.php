@@ -7,7 +7,7 @@
  * Description: Extended from the Employee Class, represents an Hourly Employee
  *
  * UML:
- * (abstract) HourlyEmployee
+ * HourlyEmployee
  * ----------------------------
  * -wage: float
  * -hours: integer

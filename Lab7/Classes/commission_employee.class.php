@@ -7,7 +7,7 @@
  * Description: Extended from the Employee Class, represents a Commission Employee that is paid a percentage commission from their sales
  *
  * UML:
- * (abstract) CommissionEmployee
+ * CommissionEmployee
  * ----------------------------
  * sales: int
  * -weekly_salary: float

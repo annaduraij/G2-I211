@@ -7,7 +7,7 @@
  * Description: Extended from the Employee Class, represents a Salaried Employee that is paid a weekly wage
  *
  * UML:
- * (abstract) SalariedEmployee
+ * SalariedEmployee
  * ----------------------------
  * -weekly_salary: float
  * ----------------------------
