@@ -57,22 +57,14 @@ class BasePlusCommissionEmployee extends CommissionEmployee {
 
     /**
      * Signature and Polymorphic Method of the Base Plus Commission Employee Class
-     * @return float|string Base Salary plus Commission Employee's Total Payment
-     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
+     * @return float Base Salary plus Commission Employee's Total Payment
+
      */
-    public function getPaymentAmount(bool $naturalLang = false): float|string
+    public function getPaymentAmount(): float
     {
         //Bind Value as Payment Amount: Commission Amount + Base Salary
-        $value = (parent::getPaymentAmount()) + ($this->getBaseSalary());
-
-        //If Natural Language flag is False
-        if (!$naturalLang) {
-            //Return the value as a Float
-            return $value;
-        } else {
-            //Otherwise, Return it as a Formatted String in $##.00
-            return "$".number_format($value,2);
-        }
+        //Return Value
+        return (parent::getPaymentAmount()) + ($this->getBaseSalary());
 
     }//End of getPaymentAmount Function that represents the Employee's Total Earnings
 
@@ -81,24 +73,24 @@ class BasePlusCommissionEmployee extends CommissionEmployee {
     public function toString(): void
     {
 
-        /*
+
         //Incorrect Use of Polymorphism, but Gets the Desired Format without Issues
+        /*
         //Call the toString Method of the Grand Parent Employee Class
         //Employee::toString();
 
         //Cannot Simply Call the Parent toString Method as that will Result in Improper Repetition or Formatting and Order of the Earnings Line
-
         //Echo the Employee's Sales Quantity in $
-        echo "Sales: ".$this->getSales(true)."<br>";
+        echo "Sales: $".number_format($this->getSales( ),2)."<br>";
 
         //Echo the Employee's % Commission Rate as a Decimal
-        echo "Commission Rate: ".$this->getCommissionRate(true)."<br>";
+        echo "Commission Rate: ".number_format($this->getCommissionRate( ),2)."<br>";
 
         //Echo the Employee's Base Salary
-        echo "Base Salary: ".$this->getBaseSalary(true)."<br>";
+        echo "Base Salary: $".number_format($this->getBaseSalary( ),2)."<br>";
 
         //Echo the Employee's Gross Earnings in $
-        echo "Earnings: ".$this->getPaymentAmount(true)."<br>";
+        echo "Earnings: $".number_format($this->getPaymentAmount( ),2)."<br>";
         */
 
 
@@ -109,10 +101,10 @@ class BasePlusCommissionEmployee extends CommissionEmployee {
         parent::toString();
 
         //Echo the Employee's Base Salary
-        echo "Base Salary: ".$this->getBaseSalary(true)."<br>";
+        echo "Base Salary: $".number_format($this->getBaseSalary( ),2)."<br>";
 
         //Echo the Employee's Gross Earnings in $
-        echo "Earnings: ".$this->getPaymentAmount(true)."<br>";
+        echo "Earnings: $".number_format($this->getPaymentAmount( ),2)."<br>";
 
 
     }//End of Signature toString Method
@@ -124,17 +116,14 @@ class BasePlusCommissionEmployee extends CommissionEmployee {
 
 
     /**
-     * @param bool $naturalLang allows for natural language formatting and returns a string
-     * @return float|string Employee's Base Salary in $
+     * @return float Employee's Base Salary in $
      */
-    public function getBaseSalary(bool $naturalLang = false): float|string
+    public function getBaseSalary(): float
     {
         //Bind Value
-        $value = $this->base_salary;
-
-        //Use Natural Language Function of Employee to Determine Printed Value
-        return Employee::nlUSD($value,$naturalLang);
-
+        //Return the Value
+        return $this->base_salary;
+        
     }
 
 

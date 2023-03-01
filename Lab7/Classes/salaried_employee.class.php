@@ -55,16 +55,14 @@ class SalariedEmployee extends Employee {
 
     /**
      * Signature and Polymorphic Method of the Salaried Employee Class
-     * @return float|string Salaried Employee's Total Payment
-     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
+     * @return float Salaried Employee's Total Payment
+
      */
-    public function getPaymentAmount(bool $naturalLang = false): float|string
+    public function getPaymentAmount(): float
     {
         //Bind Value as Payment Amount: Weekly Salary
-        $value = $this->getWeeklySalary();
-
-        //Use Natural Language Function of Employee to Determine Printed Value
-        return Employee::nlUSD($value,$naturalLang);
+        //Return the Value
+        return $this->getWeeklySalary();
 
     }//End of getPaymentAmount Function that represents the Employee's Total Earnings
 
@@ -76,10 +74,10 @@ class SalariedEmployee extends Employee {
         parent::toString();
 
         //Echo the Employee's Weekly Salary in $
-        echo "Weekly Salary: ".$this->getWeeklySalary(true)."<br>";
+        echo "Weekly Salary: $".number_format($this->getWeeklySalary( ),2)."<br>";
 
         //Echo the Employee's Earnings in $
-        echo "Earnings: ".$this->getPaymentAmount(true)."<br>";
+        echo "Earnings: $".number_format($this->getPaymentAmount( ),2)."<br>";
 
     }//End of Signature toString Method
 
@@ -89,16 +87,14 @@ class SalariedEmployee extends Employee {
     //----------------------------------------------//
 
     /**
-     * @return float|string Salaried Employee's Weekly Salary
-     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
+     * @return float Salaried Employee's Weekly Salary
+
      */
-    public function getWeeklySalary(bool $naturalLang = false): float|string
+    public function getWeeklySalary(): float
     {
         //Bind the Value
-        $value = $this->weekly_salary;
-
-        //Use Natural Language Function of Employee to Determine Printed Value
-        return Employee::nlUSD($value,$naturalLang);
+        //Return the Value
+        return $this->weekly_salary;
     }
 
 

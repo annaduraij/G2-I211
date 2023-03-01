@@ -26,10 +26,9 @@ interface Payable {
 
     /**
      * Signature and Polymorphic Method
-     * @return float|string of the Total Payment as Computed
-     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
+     * @return float of the Total Payment as Computed
      */
-    public function getPaymentAmount(bool $naturalLang = false): float|string;
+    public function getPaymentAmount(): float;
 
     //Polymorphic Method to Echo the Traits of the Class
     //Echoes the Properties of an Instance with Line Breaks

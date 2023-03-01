@@ -63,16 +63,14 @@ class HourlyEmployee extends Employee {
 
     /**
      * Signature and Polymorphic Method of the Hourly Employee Class
-     * @return float|string Hourly Employee's Total Payment
-     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
+     * @return float Hourly Employee's Total Payment
+
      */
-    public function getPaymentAmount(bool $naturalLang = false): float|string
+    public function getPaymentAmount(): float
     {
         //Bind Value as Payment Amount: wage x hours
-        $value = ($this->getWage()) * ($this->getHours());
-
-        //Use Natural Language Function of Employee to Determine Printed Value
-        return Employee::nlUSD($value,$naturalLang);
+        //Return the Value
+        return ($this->getWage()) * ($this->getHours());
 
     }//End of getPaymentAmount Function that represents the Employee's Total Earnings
 
@@ -84,13 +82,13 @@ class HourlyEmployee extends Employee {
         parent::toString();
 
         //Echo the Employee's Wage in $
-        echo "Wage: ".$this->getWage(true)."<br>";
+        echo "Wage: $".number_format($this->getWage( ),2)."<br>";
 
         //Echo the Employee's Working Hours
         echo "Hours: ".$this->getHours()."<br>";
 
         //Echo the Employee's Earnings in $
-        echo "Earnings: ".$this->getPaymentAmount(true)."<br>";
+        echo "Earnings: $".number_format($this->getPaymentAmount( ),2)."<br>";
 
     }//End of Signature toString Method
 
@@ -100,16 +98,14 @@ class HourlyEmployee extends Employee {
     //----------------------------------------------//
 
     /**
-     * @return float|string Hourly Employee's Hourly Wage
-     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
+     * @return float Hourly Employee's Hourly Wage
+
      */
-    public function getWage(bool $naturalLang = false): float|string
+    public function getWage(): float
     {
         //Bind the Value
-        $value = $this->wage;
-
-        //Use Natural Language Function of Employee to Determine Printed Value
-        return Employee::nlUSD($value,$naturalLang);
+        //Return the Value
+        return $this->wage;
     }
 
     /**

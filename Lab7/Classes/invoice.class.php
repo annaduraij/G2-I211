@@ -71,16 +71,15 @@ class Invoice implements Payable {
 
     /**
      * Signature and Polymorphic Method of the Invoice Class
-     * @return float|string of the Total Payment as Computed by Part Price x Part Quantity
-     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
+     * @return float of the Total Payment as Computed by Part Price x Part Quantity
      */
-    public function getPaymentAmount(bool $naturalLang = false): float|string
+    public function getPaymentAmount(): float
     {
         //Bind the Value as Payment Amount: Part Quantity x Part Price
         $value = ($this->getQuantity() * $this->getPricePerItem());
-
-        //Use Natural Language Function of Employee to Determine Printed Value
-        return Employee::nlUSD($value,$naturalLang);
+        
+        //Return the Value
+        return $value;
 
     }//End of getPaymentAmount Function that represents the Total Invoice Amount
 
@@ -95,10 +94,10 @@ class Invoice implements Payable {
         echo "Quantity: ".$this->getQuantity()."<br>";
 
         //Echo the Price per Part/Item in $
-        echo "Price Per Item: ".$this->getPricePerItem(true)."<br>";
+        echo "Price Per Item: $".number_format($this->getPricePerItem( ),2)."<br>";
 
         //Echo the Total Payment Amount in $
-        echo "Payment: ".$this->getPaymentAmount(true)."<br>";
+        echo "Payment: $".number_format($this->getPaymentAmount( ),2)."<br>";
 
     }//End of Signature toString Method
 
@@ -132,16 +131,14 @@ class Invoice implements Payable {
     }
 
     /**
-     * @return float|string of the Price per Part/Item in $
-     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
+     * @return float of the Price per Part/Item in $
+
      */
-    public function getPricePerItem(bool $naturalLang = false): float|string
+    public function getPricePerItem(): float
     {
         //Bind the Value
-        $value = $this->price_per_item;
-
-        //Use Natural Language Function of Employee to Determine Printed Value
-        return Employee::nlUSD($value,$naturalLang);
+        //Return the Value
+        return $this->price_per_item;
 
     }
 

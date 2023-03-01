@@ -63,22 +63,14 @@ class CommissionEmployee extends Employee {
 
     /**
      * Signature and Polymorphic Method of the Hourly Employee Class
-     * @return float|string Hourly Employee's Total Payment in
-     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
+     * @return float Hourly Employee's Total Payment in
+
      */
-    public function getPaymentAmount(bool $naturalLang = false): float|string
+    public function getPaymentAmount(): float
     {
         //Bind Value as Payment Amount: sales x commission rate
-        $value = $this->getSales() * $this->getCommissionRate();
-
-        //If Natural Language flag is False
-        if (!$naturalLang) {
-            //Return the value as a Float
-            return $value;
-        } else {
-            //Otherwise, Return it as a Formatted String in $##.00
-            return "$".number_format($value,2);
-        }
+        //Return the Value
+        return $this->getSales() * $this->getCommissionRate();
 
     }//End of getPaymentAmount Function that represents the Employee's Total Earnings
 
@@ -90,14 +82,14 @@ class CommissionEmployee extends Employee {
         parent::toString();
 
         //Echo the Employee's Sales Quantity in $
-        echo "Sales: ".$this->getSales(true)."<br>";
+        echo "Sales: $".number_format($this->getSales( ),2)."<br>";
 
         //Echo the Employee's % Commission Rate as a Decimal
-        echo "Commission Rate: ".$this->getCommissionRate(true)."<br>";
+        echo "Commission Rate: ".number_format($this->getCommissionRate( ),2)."<br>";
 
         //Echo the Employee's Commission Earnings in $
-        //echo "Commission Earnings: ".$this->getPaymentAmount(true)."<br>"; //Not Extensible into Base Plus Commission Employee
-        echo "Commission Earnings: ".CommissionEmployee::getPaymentAmount(true)."<br>";
+        //echo "Commission Earnings: ".$this->getPaymentAmount( )."<br>"; //Not Extensible into Base Plus Commission Employee
+        echo "Commission Earnings: $".number_format(CommissionEmployee::getPaymentAmount( ),2)."<br>";
 
     }//End of Signature toString Method
 
@@ -108,30 +100,26 @@ class CommissionEmployee extends Employee {
 
 
     /**
-     * @return int|string Commission Employee's Quantity of Sales
-     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
+     * @return int Commission Employee's Quantity of Sales
+
      */
-    public function getSales(bool $naturalLang = false): int|string
+    public function getSales(): int
     {
         //Bind the Value
-        $value = $this->sales;
-
-        //Use Natural Language Function of Employee to Determine Printed Value
-        return Employee::nlUSD($value,$naturalLang);
+        //Return the Value
+        return $this->sales;
 
     }
 
     /**
-     * @return float|string Commission Employee's Commission Rate as % float of sales
-     * @param bool $naturalLang allows for natural language formatting as a formatted decimal and returns a string
+     * @return float Commission Employee's Commission Rate as % float of sales
+
      */
-    public function getCommissionRate(bool $naturalLang = false): float|string
+    public function getCommissionRate(): float
     {
         //Bind the Value as Payment Amount: Part Quantity x Part Price
-        $value = $this->commission_rate;
-
-        //Use Natural Language Function of Employee to Determine Printed Value
-        return Employee::nlUSD($value,$naturalLang,false);
+        //Return the Value
+        return $this->commission_rate;
 
     }
 
